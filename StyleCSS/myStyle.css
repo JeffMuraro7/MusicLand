@@ -1,0 +1,55 @@
+/* 
+    Crée le     : 1 nov. 2015, 08:56:15
+    Auteur      : Jeff Muraro
+    Version     : v0.1
+    Description : Feuille de style CSS pour les éléments de base (header, nav, section, footer, etc.)
+                  de Music'Land.
+*/
+
+/* Style pour l'en-tête */
+header {
+    position: relative;
+    
+    margin: auto;
+    
+    height: 100px;
+    width: 1080px;
+    
+    background-color: red; //Couleur pour les tests.
+}
+
+/* Style pour la navigation */
+nav {
+    position: relative;
+    
+    margin: auto;
+    
+    height: 100px;
+    width: 1080px;
+    
+    background-color: green; //Couleur pour les tests.
+}
+
+/* Style pour le contenu */
+section {
+    position: relative;
+    
+    margin: auto;
+    
+    height: 500px;
+    width: 1080px;
+    
+    background-color: yellow; //Couleur pour les tests.
+}
+
+/* Style pour le pied de page */
+footer {
+    position: relative;
+    
+    margin: auto;
+    
+    height: 50px;
+    width: 1080px;
+    
+    background-color: blue; //Couleur pour les tests.
+}
