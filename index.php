@@ -24,17 +24,28 @@
         
         <!-- Bloc pour l'en-tête -->
         <header>
-            En tête
+            <img src="IMG/musicLandLogo.png" alt="Logo Music'Land" class="floatLeft" />
         </header>
         
         <!-- Bloc pour la navigation -->
-        <nav>
-            Navigation
+        <nav class="clearfix">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Musique</a></li>
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Connexion</a></li>
+            </ul>
         </nav>
         
         <!-- Bloc pour le contenu du site -->
         <section>
-            Section de contenue
+            <article>
+                Article n°1
+            </article>
+
+            <article>
+                Article n°2
+            </article>
         </section>
         
         <!-- Bloc pour le pied de page -->

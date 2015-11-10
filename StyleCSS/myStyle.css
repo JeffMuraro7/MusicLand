@@ -11,23 +11,76 @@ header {
     position: relative;
     
     margin: auto;
+    margin-top: 10px;
     
-    height: 100px;
+    height: 200px;
     width: 1080px;
     
-    background-color: red; //Couleur pour les tests.
+    //background-color: red; //Couleur pour les tests.
 }
+
+header .floatLeft {
+    position: relative;
+    
+    float: left;
+}
+
 
 /* Style pour la navigation */
 nav {
     position: relative;
     
     margin: auto;
+    margin-top: 10px;
     
-    height: 100px;
+    height: 50px;
     width: 1080px;
     
-    background-color: green; //Couleur pour les tests.
+    background-color: #ededed; //Couleur pour les tests.
+}
+
+nav ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav li {
+    border-right: 1px solid black;
+    display: block;
+    float: left;
+}
+
+nav li:last-child {
+    border-right-width: 0px;
+}
+
+nav a {
+    background-color: #ededed;
+    color: #1e00ff;
+    display: block;
+    padding: 1em 2em;
+    text-decoration: none;
+    
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+
+nav a:hover  {
+    background-color: #f3f3f3;
+} 
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:after, .clearfix:before {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
 }
 
 /* Style pour le contenu */
@@ -36,17 +89,33 @@ section {
     
     margin: auto;
     
-    height: 500px;
+    height: 100%;
     width: 1080px;
     
     background-color: yellow; //Couleur pour les tests.
 }
+
+
+article {
+    position: relative;
+    
+    height: 150px;
+    width: 1060px;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    background-color: pink;
+}
+
 
 /* Style pour le pied de page */
 footer {
     position: relative;
     
     margin: auto;
+    margin-top: 10px;
     
     height: 50px;
     width: 1080px;
