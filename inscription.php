@@ -14,10 +14,12 @@
          <!-- Début des feuilles de styles -->
          <link href="StyleCSS/myStyle.css" rel="stylesheet" type="text/css"/>
          <link href="StyleCSS/myFont.css" rel="stylesheet" type="text/css"/>
+         <link href="StyleCSS/myInscription.css" rel="stylesheet" type="text/css"/>
          <!-- Fin des feuilles de styles -->
          <meta charset="UTF-8">
          <title>Music'Land | Accueil</title>
      </head>
+     
      <script>
        function checkPass() //code venant de http://keithscode.com/tutorials/javascript/3-a-simple-javascript-password-validator.html
        {
@@ -48,6 +50,7 @@
            }
         }
      </script>
+     
      <body>
 
          <!-- Bloc pour l'en-tête -->
@@ -68,12 +71,15 @@
          <section>
              <article>
                  <form method="post" action="inscription.php">
-                   <label for="nom">Votre Nom</label> : <input type="text" name="nom" id="nom" maxlength="50" required value="<?= $nom ?>"/> <br />
-                   <label for="pseudo">Votre Pseudo</label> : <input type="text" name="pseudo" id="pseudo" maxlength="50" value="<?= $pseudo ?>" required /> <br />
-                   <label for="pass">Votre mot de passe :</label><input type="password" name="pass" id="pass" required /> <br />
-                   <label for="passconf">Confirmer mot de passe :</label><input type="password" name="passconf" id="passconf" onkeyup="checkPass(); return false;" required /><span id="confirmMessage" class="confirmMessage"></span> <br />
-                   <label for="email">Votre E-mail</label> : <input type="email" name="email" id="email" maxlength="200" value="<?= $email ?>" required /> <br />
-                   <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
+                     <fieldset class="fieldset">
+                        <legend> Inscription </legend>
+                        <label for="nom">Votre Nom</label> : <input type="text" name="nom" id="nom" maxlength="50" required value="<?= $nom ?>"/> <br />
+                        <label for="pseudo">Votre Pseudo</label> : <input type="text" name="pseudo" id="pseudo" maxlength="50" value="<?= $pseudo ?>" required /> <br />
+                        <label for="pass">Votre mot de passe :</label><input type="password" name="pass" id="pass" required /> <br />
+                        <label for="passconf">Confirmer mot de passe :</label><input type="password" name="passconf" id="passconf" onkeyup="checkPass(); return false;" required /><span id="confirmMessage" class="confirmMessage"></span> <br />
+                        <label for="email">Votre E-mail</label> : <input type="email" name="email" id="email" maxlength="200" value="<?= $email ?>" required /> <br />
+                        <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
+                     </fieldset>
                  </form>
              </article>
          </section>

@@ -109,11 +109,13 @@ article {
     position: relative;
     
     height: auto;
-    width: 1060px;
+    width: 1040px;
     
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+    
+    padding: 10px;
     
     opacity: 0.8;
     background-color: #1e00ff;

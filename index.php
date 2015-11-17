@@ -34,13 +34,8 @@
             <ul>
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Musique</a></li>
-<<<<<<< HEAD
                 <li><a href="inscription.php">Inscription</a></li>
                 <li><a href="#">Connexion</a></li>
-=======
-                <li><a href="#">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
->>>>>>> e98dd4bc2f34494475b012ec6054945fbccb7772
             </ul>
         </nav>
 

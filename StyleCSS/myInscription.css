@@ -1,0 +1,29 @@
+/* 
+    Crée le     : 1 nov. 2015, 08:56:15
+    Auteur      : Jeff Muraro
+    Version     : v0.1
+    Description : Feuille de style CSS pour le formulaire d'inscription
+                  de Music'Land.
+*/
+
+.fieldset {
+    width: 1000px;
+    margin: 0 auto 15px auto;
+    padding: 10px;
+    border: 2px solid #ededed;
+    
+    color: #ededed;
+}
+
+legend {
+    font-weight: bold;
+    text-align: center;
+}
+
+label {
+    //display: block;
+    
+    width: 200px;
+    
+    background-color: red;
+}
