@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
     Crée le     : 1 nov. 2015, 08:56:15
-    Auteur      : Jeff Muraro
+    Auteur      : Jeff Muraro, Nicolas Bertrand
     Version     : v0.1
     Description : Music'Land est un projet qui se trouve dans le cadre du module m152. Nous sommes deux à travailler dessus.
                   Ainsi M. Bertrand et M. Muraro vont réaliser un site web qui regroupe des musiques pour en faire un site
@@ -33,7 +33,7 @@
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Musique</a></li>
                 <li><a href="#">Inscription</a></li>
-                <li><a href="#">Connexion</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
             </ul>
         </nav>
         
@@ -46,11 +46,15 @@
             <article>
                 Article n°2
             </article>
+            
+            <article>
+                Article n°3
+            </article>
         </section>
         
         <!-- Bloc pour le pied de page -->
         <footer>
-            Pied de page
+            &copy; Nicolas Bertrand & Jeff Muraro
         </footer>
         
     </body>
