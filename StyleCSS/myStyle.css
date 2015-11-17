@@ -6,6 +6,10 @@
                   de Music'Land.
 */
 
+body {
+    //background-color: #ededed;
+}
+
 /* Style pour l'en-tête */
 header {
     position: relative;
@@ -16,6 +20,7 @@ header {
     height: 200px;
     width: 1080px;
     
+    background-color: #ededed;
     //background-color: red; //Couleur pour les tests.
 }
 
@@ -92,21 +97,26 @@ section {
     height: 100%;
     width: 1080px;
     
-    background-color: yellow; //Couleur pour les tests.
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    
+    background-color: #ededed; //Couleur pour les tests.
 }
 
 
 article {
     position: relative;
     
-    height: 150px;
+    height: auto;
     width: 1060px;
     
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
     
-    background-color: pink;
+    opacity: 0.8;
+    background-color: #1e00ff;
 }
 
 
@@ -120,5 +130,8 @@ footer {
     height: 50px;
     width: 1080px;
     
-    background-color: blue; //Couleur pour les tests.
+    text-align: center;
+    line-height: 50px;
+    
+    background-color: #ededed; //Couleur pour les tests.
 }
