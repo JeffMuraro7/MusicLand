@@ -63,6 +63,7 @@
              <ul>
                  <li><a href="#">Accueil</a></li>
                  <li><a href="#">Musique</a></li>
+                 <li><a href="inscription.php">Inscription</a></li>
                  <li><a href="#">Connexion</a></li>
              </ul>
          </nav>
@@ -73,11 +74,11 @@
                  <form method="post" action="inscription.php">
                      <fieldset class="fieldset">
                         <legend> Inscription </legend>
-                        <label for="nom">Votre Nom</label> : <input type="text" name="nom" id="nom" maxlength="50" required value="<?= $nom ?>"/> <br />
-                        <label for="pseudo">Votre Pseudo</label> : <input type="text" name="pseudo" id="pseudo" maxlength="50" value="<?= $pseudo ?>" required /> <br />
+                        <label for="nom">Votre Nom : </label><input type="text" name="nom" id="nom" maxlength="50" required value="<?= $nom ?>"/> <br />
+                        <label for="pseudo">Votre Pseudo : </label><input type="text" name="pseudo" id="pseudo" maxlength="50" value="<?= $pseudo ?>" required /> <br />
                         <label for="pass">Votre mot de passe :</label><input type="password" name="pass" id="pass" required /> <br />
                         <label for="passconf">Confirmer mot de passe :</label><input type="password" name="passconf" id="passconf" onkeyup="checkPass(); return false;" required /><span id="confirmMessage" class="confirmMessage"></span> <br />
-                        <label for="email">Votre E-mail</label> : <input type="email" name="email" id="email" maxlength="200" value="<?= $email ?>" required /> <br />
+                        <label for="email">Votre E-mail : </label><input type="email" name="email" id="email" maxlength="200" value="<?= $email ?>" required /> <br />
                         <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
                      </fieldset>
                  </form>
