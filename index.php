@@ -1,6 +1,9 @@
 <?php
-    require_once './fonctionBD/connection_bd.php';
-    getDb();
+  session_start();
+  if(isset($_SESSION['nom']))
+  {
+     var_dump($_SESSION['nom']);
+  }
 ?>
 <!DOCTYPE html>
 <!--
@@ -32,10 +35,17 @@
         <!-- Bloc pour la navigation -->
         <nav class="clearfix">
             <ul>
-                <li><a href="#">Accueil</a></li>
                 <li><a href="#">Musique</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="#">Connexion</a></li>
+                <?php
+                  if(!isset($_SESSION['nom']))
+                  {
+                    echo '<li><a href="inscription.php">Inscription</a></li><li><a href="connexion.php">Connexion</a></li>';
+                  }
+                  else
+                  {
+                    echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>'; //TODO Faire déco
+                  }
+                ?>
             </ul>
         </nav>
 
@@ -48,7 +58,7 @@
             <article>
                 Article n°2
             </article>
-            
+
             <article>
                 Article n°3
             </article>
