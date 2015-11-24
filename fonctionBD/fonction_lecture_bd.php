@@ -7,3 +7,11 @@
     $request->execute();
     return $request->fetch(PDO::FETCH_ASSOC);
   }
+
+  function recuperer_nom_album_par_artiste($nomArtiste)
+  {
+    $request = getDb()->prepare("SELECT NomAlbum, IdAlbum FROM album WHERE NomArtiste = :nom");
+    $request->bindParam(':nom', $nomArtiste);
+    $request->execute();
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+  }
