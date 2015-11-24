@@ -5,8 +5,8 @@
   {
       session_destroy();
       session_write_close(); //ferme le fichier de session
-      //header('Location: ./index.php');
-      //exit();
+      header('Location: ./index.php');
+      exit();
   }
   if(isset($_REQUEST['boutonEnvoyer']))
   {

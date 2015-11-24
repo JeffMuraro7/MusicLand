@@ -19,7 +19,7 @@
          <meta charset="UTF-8">
          <title>Music'Land | Accueil</title>
      </head>
-     
+
      <script>
        function checkPass() //code venant de http://keithscode.com/tutorials/javascript/3-a-simple-javascript-password-validator.html
        {
@@ -50,7 +50,7 @@
            }
         }
      </script>
-     
+
      <body>
 
          <!-- Bloc pour l'en-tête -->
@@ -63,7 +63,6 @@
              <ul>
                  <li><a href="index.php">Accueil</a></li>
                  <li><a href="#">Musique</a></li>
-                 <li><a href="inscription.php">Inscription</a></li>
                  <li><a href="connexion.php">Connexion</a></li>
              </ul>
          </nav>
