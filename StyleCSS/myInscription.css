@@ -7,11 +7,12 @@
 */
 
 .fieldset {
-    width: 1000px;
+    width: 500px;
+    height: auto;
     margin: 0 auto 15px auto;
     padding: 10px;
-    border: 2px solid #ededed;
-    color: #ededed;
+    border: 2px solid #1e00ff;
+    color: #1e00ff;
 }
 
 legend {
@@ -33,7 +34,7 @@ label {
 }
 
 input[type=text] {
-    width: 300px;
+    width: 500px;
     
     padding: 3px;
     
@@ -41,7 +42,7 @@ input[type=text] {
 }
 
 input[type=password] {
-    width: 300px;
+    width: 500px;
     
     padding: 3px;
     
@@ -49,7 +50,7 @@ input[type=password] {
 }
 
 input[type=email] {
-    width: 300px;
+    width: 500px;
     
     padding: 3px;
     

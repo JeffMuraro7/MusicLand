@@ -94,7 +94,7 @@ section {
     
     margin: auto;
     
-    height: 100%;
+    height: auto;
     width: 1080px;
     
     margin-top: 5px;
@@ -121,6 +121,9 @@ article {
     background-color: #1e00ff;
 }
 
+#form {
+    background-color: #ededed;
+}
 
 /* Style pour le pied de page */
 footer {
