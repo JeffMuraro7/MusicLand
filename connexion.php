@@ -25,7 +25,8 @@
     <head>
         <!-- Début des feuilles de styles -->
         <link href="StyleCSS/myStyle.css" rel="stylesheet" type="text/css"/>
-        <link href="StyleCSS/myFont.css" rel="stylesheet" type="text/css"/>
+         <link href="StyleCSS/myFont.css" rel="stylesheet" type="text/css"/>
+         <link href="StyleCSS/myConnexion.css" rel="stylesheet" type="text/css"/>
         <!-- Fin des feuilles de styles -->
         <meta charset="UTF-8">
         <title>Music'Land | Accueil</title>
@@ -48,11 +49,14 @@
 
         <!-- Bloc pour le contenu du site -->
         <section>
-            <article>
+            <article class="form">
                 <form method="post" action="connexion.php">
-                  <label for="pseudo">Votre Pseudo</label> : <input type="text" name="pseudo" id="pseudo" maxlength="50" value="<?= $pseudo ?>" required /> <br />
-                  <label for="pass">Votre mot de passe :</label><input type="password" name="pass" id="pass" required /> <br />
-                  <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
+                    <fieldset class="fieldset">
+                        <legend> Connexion </legend>
+                        <label for="pseudo">Votre Pseudo :</label><input type="text" name="pseudo" id="pseudo" maxlength="50" value="<?= $pseudo ?>" required /> <br />
+                        <label for="pass">Votre mot de passe :</label><input type="password" name="pass" id="pass" required /> <br />
+                        <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
+                    </fieldset>
                 </form>
             </article>
         </section>

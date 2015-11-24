@@ -69,7 +69,7 @@
 
          <!-- Bloc pour le contenu du site -->
          <section>
-             <article id="form">
+             <article class="form">
                  <form method="post" action="inscription.php">
                      <fieldset class="fieldset">
                         <legend> Inscription </legend>
