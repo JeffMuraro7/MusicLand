@@ -1,15 +1,23 @@
 <?php
   $pseudo = isset($_REQUEST['pseudo']) ? $_REQUEST['pseudo'] : "";
+  session_start();
+  if(isset($_REQUEST['deco']) && $_REQUEST['deco'] == "oui")
+  {
+      session_destroy();
+      session_write_close(); //ferme le fichier de session
+      //header('Location: ./index.php');
+      //exit();
+  }
   if(isset($_REQUEST['boutonEnvoyer']))
   {
         require_once './fonctionBD/fonction_lecture_bd.php';
-        session_start();
         $userlogin = login($_REQUEST['pseudo'], $_REQUEST['pass']);
         $nom = $_REQUEST['pseudo'];
-        if (count($userlogin) > 0) {
+        if ($userlogin != false) {
             $_SESSION['nom'] = $userlogin['pseudo'];
             $_SESSION['isAdmin'] = $userlogin['Statut'];
             header('Location: ./index.php');
+            exit();
         }
   }
 ?>
@@ -32,9 +40,9 @@
         <!-- Bloc pour la navigation -->
         <nav class="clearfix">
             <ul>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="#">Musique</a></li>
                 <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="index.php">Accueil</a></li>
             </ul>
         </nav>
 
