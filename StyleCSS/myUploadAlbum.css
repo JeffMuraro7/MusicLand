@@ -1,0 +1,75 @@
+/* 
+    Crée le     : 1 nov. 2015, 08:56:15
+    Auteur      : Jeff Muraro
+    Version     : v0.1
+    Description : Feuille de style CSS pour les éléments de base (header, nav, section, footer, etc.)
+                  de Music'Land.
+*/
+
+.fieldset {
+    width: 500px;
+    height: auto;
+    margin: 0 auto 15px auto;
+    padding: 10px;
+    border: 2px solid #1e00ff;
+    color: #1e00ff;
+}
+
+legend {
+    font-weight: bold;
+    text-align: center;
+}
+
+label {
+    display: block;
+    
+    width: 200px;
+    
+    float: left;
+    
+    margin-right: 10px;
+    
+    
+    //background-color: red;
+}
+
+input[type=text] {
+    width: 500px;
+    
+    padding: 3px;
+    
+    border-radius: 5px;
+}
+
+input[type=password] {
+    width: 500px;
+    
+    padding: 3px;
+    
+    border-radius: 5px;
+}
+
+input[type=date] {
+    width: 500px;
+    
+    padding: 3px;
+    
+    border-radius: 5px;
+}
+
+input[type=file] {
+    width: 500px;
+    
+    padding: 3px;
+    
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    width: 500px;
+    
+    padding: 3px;
+    margin-top: 10px;
+    
+    border-radius: 5px;
+}
