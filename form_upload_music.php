@@ -1,13 +1,13 @@
 <?php
   session_start();
-  /*if(!isset($_SESSION['nom']))
+  if(!isset($_SESSION['nom']))
   {
     echo '<script language="Javascript">
     alert("Vous devez vous connecter pour accéder à cette page")
     </script>';
     header('Location: ./index.php');
     exit();
-  }*/
+  }
   require_once './fonctionBD/fonction_lecture_bd.php';
   $nom = isset($_REQUEST['nomMusique']) ? $_REQUEST['nomMusique'] : "";
   var_dump($_SESSION['nom']);
@@ -17,8 +17,8 @@
     echo '<script language="Javascript">
     alert ("Vous devez d\'abord créer un album" )
     </script>';
-    /*header('Location: ./form_upload_album.php');
-    exit();*/
+    header('Location: ./form_upload_album.php');
+    exit();
   }
 
   if(isset($_REQUEST['boutonEnvoyer']))
