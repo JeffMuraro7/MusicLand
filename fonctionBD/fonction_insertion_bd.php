@@ -1,8 +1,8 @@
 <?php
-require_once 'connection_bd.php';
+require_once 'connexion_bd.php';
 function insertUser($lastname, $pseudo, $pass, $email) {
    try{
-      $request = getDb()->prepare("INSERT INTO ".DB_NAME.".`user` (`IdUser`, `Nom`, `Pseudo`, `MDP`, `Email`, `statut`) VALUES (NULL, :lastname, :pseudo, SHA1(:pass), :email, 0)");
+      $request = getDb()->prepare("INSERT INTO `".DB_NAME."`.`user` (`IdUser`, `Nom`, `Pseudo`, `MDP`, `Email`, `statut`) VALUES (NULL, :lastname, :pseudo, SHA1(:pass), :email, 0)");
       $request->bindParam(':lastname', $lastname, PDO::PARAM_STR);
       $request->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
       $request->bindParam(':pass', $pass, PDO::PARAM_STR);
@@ -16,12 +16,27 @@ function insertUser($lastname, $pseudo, $pass, $email) {
 
 function insertAlbum($nomAlbum, $nomArtiste, $dateParution, $pochette, $idStyle) {
     try {
-        $request = getDb()->prepare("INSERT INTO ".DB_NAME."'album' ('IdAlbum', 'NomAlbum', 'NomArtiste', 'Pochette', 'IdStyle') VALUES (NULL, :nomAlbum, :nomArtiste, :pochette, :idStyle)");
+        $request = getDb()->prepare("INSERT INTO `".DB_NAME."`'album' ('IdAlbum', 'NomAlbum', 'NomArtiste', 'Pochette', 'IdStyle') VALUES (NULL, :nomAlbum, :nomArtiste, :pochette, :idStyle)");
         $request->bindParam(':nomAlbum', $nomAlbum, PDO::PARAM_STR);
         $request->bindParam(':nomArtiste', $nomArtiste, PDO::PARAM_STR);
         $request->bindParam(':pochette', $pochette, PDO::PARAM_STR);
         $request->bindParam(':idStyle', $idStyle, PDO::PARAM_STR);
+        return $request->execute();
     } catch (PDOException $ex) {
-        return false;
+        return $ex;
     }
+}
+
+function insertion_musique($titre, $chemin, $idAlbum)
+{
+   try{
+     $request = getDb()->prepare("INSERT INTO `".DB_NAME."`.`musique` (`IdMusique`, `Titre`, `Piste`, `IdAlbum`) VALUES (NULL, :titre, :piste, :idAlbum);");
+     $request->bindParam(':titre', $titre, PDO::PARAM_STR);
+     $request->bindParam(':piste', $chemin, PDO::PARAM_STR);
+     $request->bindParam(':idAlbum', $idAlbum, PDO::PARAM_STR);
+     return $request->execute();
+   }
+   catch(PDOException $ex) {
+      return $ex;
+   }
 }
