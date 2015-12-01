@@ -9,8 +9,8 @@
     exit();
   }
   require_once './fonctionBD/fonction_lecture_bd.php';
+  require_once './fonctionBD/fonction_insertion_bd.php';
   $nom = isset($_REQUEST['nomMusique']) ? $_REQUEST['nomMusique'] : "";
-  var_dump($_SESSION['nom']);
   $nomAlbums = recuperer_nom_album_par_artiste($_SESSION['nom']);
   if(count($nomAlbums) == 0)
   {
@@ -20,48 +20,41 @@
     header('Location: ./form_upload_album.php');
     exit();
   }
-
   if(isset($_REQUEST['boutonEnvoyer']))
    {
-     $target_dir = "./music/".$_SESSION['nom']."/";
-     $target_file = $target_dir . basename($_FILES["musique"]["name"]);
+     $nomAlbumChoisi = recuperer_nom_album_par_id($_REQUEST['nomAlbum']); //get the name for create a folder fo each album
+     $target_dir = "./music/".$_SESSION['nom']."/".$nomAlbumChoisi['NomAlbum']."/"; //path for the file
+     $target_file = $target_dir.$_FILES["musique"]["name"]; //get the name and the extension of the file
+     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION); //get the extension of the file
+     $newNameFile = $_REQUEST['nomMusique'].".".$imageFileType; //the new name with the extension
      $uploadOk = 1;
-     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-     // Check if image file is a actual image or fake image
-     if(!preg_match("\baudio/",$_FILES['image']['mime_type'])) {
-         $uploadOk = 0;
-     }
+
       // Check if file already exists
       if (file_exists($target_file)) {
-          $uploadOk = 0;
-      }
-      // Check file size
-      if ($_FILES["musique"]["size"] > 500000000) {
-          echo "Sorry, your file is too large.";
-          $uploadOk = 0;
-      }
-      // Allow certain file formats
-      if($imageFileType != "wav" && $imageFileType != "mp3")
-     {
-          echo "Désolé, seul les formats mp3 et wav sont acceptés.";
-          $uploadOk = 0;
-      }
-      // Check if $uploadOk is set to 0 by an error
-      if ($uploadOk == 0) {
-          echo "Sorry, your file was not uploaded.";
-      // if everything is ok, try to upload file
-    } else if(!file_exists($target_file)){
-          if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-              echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
-              //TODO : insertion dans base de données
-              //insertUser( $_REQUEST['nom'], $_REQUEST['prenom'], $_REQUEST['email'], $_REQUEST['date'], $_REQUEST['telephone'], $target_dir.$_FILES['image']['name']);
-          } else {
-              echo "Sorry, there was an error uploading your file.";
-          }
+          echo 'le fichier existe déjà.';
       }
       else {
-        echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
-        insertUser( $_REQUEST['nom'], $_REQUEST['prenom'], $_REQUEST['email'], $_REQUEST['date'], $_REQUEST['telephone'], $target_dir.$_FILES['image']['name']);
+        if(!file_exists("./music/".$_SESSION['nom']."/"))
+        {
+          mkdir("./music/".$_SESSION['nom']."/");
+        }
+        if(!file_exists($target_dir))
+        {
+          mkdir($target_dir);
+        }
+        // Allow certain file formats
+        if($imageFileType != "wav" && $imageFileType != "mp3")
+       {
+            echo "Désolé, seul les formats mp3 et wav sont acceptés.";
+            $uploadOk = 0;
+        }
+      }
+      if (move_uploaded_file($_FILES["musique"]["tmp_name"], $target_file)) {
+          echo "The file ". basename( $_FILES["musique"]["name"]). " has been uploaded.";
+          rename($target_file, $target_dir.$newNameFile);
+          insertion_musique( $_REQUEST['nomMusique'], $target_dir.$newNameFile, $_REQUEST['nomAlbum']);
+      } else {
+          echo "Sorry, there was an error uploading your file.";
       }
 
    }
@@ -76,9 +69,9 @@
         <!-- Fin des feuilles de styles -->
         <meta charset="UTF-8">
         <title>Music'Land | Accueil</title>
+
     </head>
     <body>
-
         <!-- Bloc pour l'en-tête -->
         <header>
             <img src="IMG/musicLandLogo.png" alt="Logo Music'Land" class="floatLeft" />
@@ -95,7 +88,7 @@
         <!-- Bloc pour le contenu du site -->
         <section>
             <article class="form">
-                <form method="post" action="#">
+                <form method="post" action="#"  enctype="multipart/form-data">
                     <fieldset class="fieldset">
                        <legend> Inscription </legend>
                        <label for="nom">Votre nom de la musique : </label><input type="text" name="nomMusique" id="nom" maxlength="50" required value="<?= $nom ?>"/> <br />
@@ -106,7 +99,7 @@
                        }
                        ?>
                       </select>
-                      <label for="musique">Télécharger votre avatar:</label> : <input name="musique" id="image" type=file accept="audio/wav, audio/mp3"><br />
+                      <label for="musique">Télécharger votre musique :</label><input name="musique" id="image" type=file accept="audio/wav, audio/mp3"><br />
                        <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
                     </fieldset>
                 </form>
