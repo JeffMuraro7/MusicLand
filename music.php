@@ -51,6 +51,16 @@
 
         <!-- Bloc pour le contenu du site -->
         <section>
+            
+                <?php
+                    if(!isset($_SESSION['nom'])) {
+                        
+                    } else {
+                        echo '<article><li><a href="form_upload_album.php">Ajouter un album</a></article>';
+                    }
+                ?>
+            
+            
             <article>
                 Article n°1
             </article>

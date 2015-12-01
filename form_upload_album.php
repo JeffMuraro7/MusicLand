@@ -1,7 +1,31 @@
 <?php
+    session_start();
+
+    if(!isset($_SESSION['nom']))
+    {
+        header('Location: ./index.php');
+        exit();
+    }
+    
     require_once './fonctionBD/fonction_select.php';
 
     $option = getStyle();
+    
+    if(isset($_REQUEST['boutonEnvoyer'])) {
+        $target_dir = "./image/".$_SESSION['nom']."/".$_REQUEST['nomAlbum']."/";
+        $target_file = $target_dir . $_FILES['pochette']['name'];
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        $newNameFile = $_REQUEST['nomAlbum'].".".$imageFileType;
+        $uploadOk = 1;
+        
+        if(file_exists($target_file)) {
+            echo 'Le fichier existe déjà!';
+        } else {
+           
+        }
+        
+        
+    }
 ?>
 <!DOCTYPE html>
 <!--
@@ -67,7 +91,7 @@
                             ?>
                         </select>
                         
-                        <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
+                        <input type="submit" value="boutonEnvoyer" name="boutonEnvoyer"/>
                      </fieldset>
                  </form>
              </article>

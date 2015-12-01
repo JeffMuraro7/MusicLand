@@ -25,8 +25,8 @@
      $nomAlbumChoisi = recuperer_nom_album_par_id($_REQUEST['nomAlbum']); //get the name for create a folder fo each album
      $target_dir = "./music/".$_SESSION['nom']."/".$nomAlbumChoisi['NomAlbum']."/"; //path for the file
      $target_file = $target_dir.$_FILES["musique"]["name"]; //get the name and the extension of the file
-     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION); //get the extension of the file
-     $newNameFile = $_REQUEST['nomMusique'].".".$imageFileType; //the new name with the extension
+     $musicFileType = pathinfo($target_file,PATHINFO_EXTENSION); //get the extension of the file
+     $newNameFile = $_REQUEST['nomMusique'].".".$musicFileType; //the new name with the extension
      $uploadOk = 1;
 
       // Check if file already exists
