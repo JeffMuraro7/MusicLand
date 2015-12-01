@@ -1,5 +1,7 @@
 <?php
-  
+    require_once './fonctionBD/fonction_select.php';
+
+    $option = getStyle();
 ?>
 <!DOCTYPE html>
 <!--
@@ -56,6 +58,14 @@
                         <label for="nomArtiste">Artiste de l'album : </label><input type="text" name="nomArtiste" id="nomArtiste" maxlength="50" required value=""/> <br />
                         <label for="dateParution">Date de parution de l'album : </label><input type="date" name="dateParution" id="dateParution" maxlength="50" required value=""/> <br />
                         <label for="pochette">Pochette de l'album : </label><input type="file" name="pochette" id="pochette" maxlength="50" accept=".jpg, .png, .jpeg, .gif" required value=""/> <br />
+                        <label for="style">Style de l'album : </label>
+                        <select name="style" id="style">
+                            <?php
+                                foreach ($option as $value) {
+                                    echo "<option value='".$value['IdStyle']."'>".$value['Style']."</option>";
+                                }
+                            ?>
+                        </select>
                         
                         <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
                      </fieldset>
