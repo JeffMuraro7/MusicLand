@@ -27,16 +27,20 @@ function insertAlbum($nomAlbum, $nomArtiste, $dateParution, $pochette, $idStyle)
     }
 }
 
-function insertion_musique($titre, $chemin, $idAlbum)
+function insertion_musique($titre, $chemin, $idAlbum) //TODO : insertion dans déposer
 {
    try{
+     getDb()->beginTransaction();
      $request = getDb()->prepare("INSERT INTO `".DB_NAME."`.`musique` (`IdMusique`, `Titre`, `Piste`, `IdAlbum`) VALUES (NULL, :titre, :piste, :idAlbum);");
      $request->bindParam(':titre', $titre, PDO::PARAM_STR);
      $request->bindParam(':piste', $chemin, PDO::PARAM_STR);
      $request->bindParam(':idAlbum', $idAlbum, PDO::PARAM_STR);
-     return $request->execute();
+     $request->execute();
+
+     getDb()->commit();
    }
    catch(PDOException $ex) {
+     getDb()->rollback();
       return $ex;
    }
 }
