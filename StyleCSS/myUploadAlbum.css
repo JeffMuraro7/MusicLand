@@ -65,6 +65,16 @@ input[type=file] {
     border-radius: 5px;
 }
 
+
+select {
+    width: 500px;
+    
+    padding: 3px;
+    margin-top: 10px;
+    
+    border-radius: 5px;
+}
+
 input[type=submit] {
     width: 500px;
     
