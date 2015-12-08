@@ -1,0 +1,55 @@
+/* 
+    Created on : 8 déc. 2015, 10:58:06
+    Author     : MURAROJ_INFO
+*/
+
+#barProgresControl {
+    width: 210px;
+    height: 20px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+#barProgres {
+    width: 0px;
+    background: #ebebeb;
+    height: 20px;
+    text-align: right;
+    line-height: 15px;
+    font-size: 9px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+
+
+.volume {
+    vertical-align: bottom;
+    display: inline-block;
+    height: 25px;
+    white-space: nowrap;
+    position: relative;
+    width: 45px;
+}
+
+.volume a {
+    display: inline-block;
+    background: blue;
+    width: 8px;
+    vertical-align: bottom;
+    margin-left: 0px;
+    margin-right: 0px;
+    cursor: pointer;
+    border-left: 1px solid #fff;
+    position: absolute;
+    bottom: 0;
+}
+
+.stick1 {height: 5px; left: 0px;}
+.stick2 {height: 10px; left: 9px;}
+.stick3 {height: 15px; left: 18px;}
+.stick4 {height: 20px; left: 27px;}
+.stick5 {height: 25px; left: 36px;}
