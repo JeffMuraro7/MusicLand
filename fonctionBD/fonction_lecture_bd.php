@@ -23,3 +23,10 @@
     $request->execute();
     return $request->fetch(PDO::FETCH_ASSOC);
   }
+
+  function recuperer_album_non_valide()
+  {
+    $query = 'SELECT IdMusique, Titre FROM musique WHERE estValide = 0';
+    $answer = getDb()->query($query); //execute the query
+    return $answer->fetchAll(PDO::FETCH_ASSOC); //We make the answer an associotive array
+  }

@@ -1,17 +1,37 @@
 <?php
   session_start();
+  /*if(empty($_SESSION['nom']) || $_SESSION['isAdmin'] != 1) //Vérification si l'utilisateur est connté et administrateur
+  {
+      session_write_close();
+      header('Location: ./index.php');
+      exit();
+  }*/
+  include_once './fonctionBD/fonction_lecture_bd.php';
+  include_once './fonctionBD/fonction_modification.php';
+
+  function recuperer_titre_nom_valider()
+  {
+     $titre = recuperer_album_non_valide();
+     if(count($titre) > 0)
+     {
+       $html = "<table><tr><th>Nom de la musique</th><th>Validation</th></tr>";
+       foreach ($titre as  $value) {
+            $html .= "<tr><td>".$value['Titre']."<td>";
+            $html .= "<td><button name=\"buttonValidation\" Onclick=\"window.location.href='admin.php?validation=".$value['IdMusique']."'\">Validation</button></td></tr>";
+       }
+       $html .= "</table>";
+     }
+     else {
+       $html = "<h2>Pas de titre à valider</h2>";
+     }
+     return $html;
+  }
+
+  if(isset($_REQUEST['validation']) && is_numeric($_REQUEST['validation']))
+  {
+       validation_chanson($_REQUEST['validation']);
+  }
 ?>
-<!DOCTYPE html>
-<!--
-    Crée le     : 1 nov. 2015, 08:56:15
-    Auteur      : Jeff Muraro, Nicolas Bertrand
-    Version     : v0.1
-    Description : Music'Land est un projet qui se trouve dans le cadre du module m152. Nous sommes deux à travailler dessus.
-                  Ainsi M. Bertrand et M. Muraro vont réaliser un site web qui regroupe des musiques pour en faire un site
-                  de streaming tel que soundcloud.
--->
-
-
 <html>
     <head>
         <!-- Début des feuilles de styles -->
@@ -48,7 +68,8 @@
         <!-- Bloc pour le contenu du site -->
         <section>
             <article>
-                Article n°1
+                <h1>Validation de la musique</h1>
+                <?php echo recuperer_titre_nom_valider(); ?>
             </article>
 
             <article>

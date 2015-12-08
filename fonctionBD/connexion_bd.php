@@ -2,7 +2,7 @@
   DEFINE('DB_HOST', "127.0.0.1");
   DEFINE('DB_NAME', "music_land");
   DEFINE('DB_USER', "musicLand");
-  DEFINE('DB_PASS', "Super");
+  DEFINE('DB_PASS', "SuperLand");
   function getDb() {
       static $dbb = null;
       if ($dbb === null) {
