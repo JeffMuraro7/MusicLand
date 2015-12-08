@@ -12,12 +12,13 @@
   function recuperer_titre_nom_valider()
   {
      $titre = recuperer_album_non_valide();
-     if(count($titre) > 0)
+     if(count($titre) > 0) //Si il y a des titres à valider
      {
        $html = "<table><tr><th>Nom de la musique</th><th>Validation</th></tr>";
        foreach ($titre as  $value) {
             $html .= "<tr><td>".$value['Titre']."<td>";
-            $html .= "<td><button name=\"buttonValidation\" Onclick=\"window.location.href='admin.php?validation=".$value['IdMusique']."'\">Validation</button></td></tr>";
+            $html .= "<td><button name=\"buttonValidation\" Onclick=\"window.location.href='admin.php?validation=".$value['IdMusique']."'\">Validation</button></td>";
+            $html .= "<td><button name=\"buttonSupression\" Onclick=\"window.location.href='admin.php?supression=".$value['IdMusique']."'\">Supression</button></td></tr>";
        }
        $html .= "</table>";
      }
@@ -30,6 +31,25 @@
   if(isset($_REQUEST['validation']) && is_numeric($_REQUEST['validation']))
   {
        validation_chanson($_REQUEST['validation']);
+  }
+  if(isset($_REQUEST['supression']) && is_numeric($_REQUEST['supression']))
+  {
+     $musique = recuperer_musique_par_id($_REQUEST['supression']);
+     if($musique != false) //Si la musique que l'on veut supprimer existe vraiment
+     {
+        if(unlink($musique['Piste'])) //Si on arrive à supprimer le fichier
+        {
+           supprimer_musique($musique['IdMusique']);
+        }
+        else {
+          return "<h2>Une erreur est survenue lors de la supression</h2>";
+        }
+
+        return "<h2>La musique à bien été supprimée</h2>";
+     }
+      else {
+        return "<h2>Cette musique n'existe pas.</h2>";
+      }
   }
 ?>
 <html>

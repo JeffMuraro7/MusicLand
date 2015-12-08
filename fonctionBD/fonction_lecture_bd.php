@@ -30,3 +30,21 @@
     $answer = getDb()->query($query); //execute the query
     return $answer->fetchAll(PDO::FETCH_ASSOC); //We make the answer an associotive array
   }
+  function getStyle() {
+      try{
+          $request = getDb()->prepare("SELECT * FROM style");
+          $request->execute();
+          return $request->fetchAll(PDO::FETCH_ASSOC);
+      }
+      catch (PDOException $e) {
+          return false;
+      }
+  }
+
+  function recuperer_musique_par_id($idMusique)
+  {
+    $request = getDb()->prepare("SELECT * FROM musique WHERE IdMusique = :id");
+    $request->bindParam(':id', $idAlbum, PDO::PARAM_INT);
+    $request->execute();
+    return $request->fetch(PDO::FETCH_ASSOC);
+  }
