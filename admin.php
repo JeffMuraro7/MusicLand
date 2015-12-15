@@ -1,11 +1,11 @@
 <?php
   session_start();
-  /*if(empty($_SESSION['nom']) || $_SESSION['isAdmin'] != 1) //Vérification si l'utilisateur est connté et administrateur
+  if(empty($_SESSION['nom']) || $_SESSION['isAdmin'] != 1) //Vérification si l'utilisateur est connté et administrateur
   {
       session_write_close();
       header('Location: ./index.php');
       exit();
-  }*/
+  }
   include_once './fonctionBD/fonction_lecture_bd.php';
   include_once './fonctionBD/fonction_modification.php';
   include_once './fonctionBD/fonction_supression_bd.php';
