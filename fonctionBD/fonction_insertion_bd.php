@@ -14,13 +14,13 @@ function insertUser($lastname, $pseudo, $pass, $email) {
   }
 }
 
-function insertAlbum($nomAlbum, $nomArtiste, $dateParution, $pochette, $idStyle) {
+function insertion_album($nomAlbum, $nomArtiste, $dateParution, $pochette, $idStyle) {
     try {
         $request = getDb()->prepare("INSERT INTO `".DB_NAME."`'album' ('IdAlbum', 'NomAlbum', 'NomArtiste', 'Pochette', 'IdStyle') VALUES (NULL, :nomAlbum, :nomArtiste, :pochette, :idStyle)");
         $request->bindParam(':nomAlbum', $nomAlbum, PDO::PARAM_STR);
         $request->bindParam(':nomArtiste', $nomArtiste, PDO::PARAM_STR);
         $request->bindParam(':pochette', $pochette, PDO::PARAM_STR);
-        $request->bindParam(':idStyle', $idStyle, PDO::PARAM_STR);
+        $request->bindParam(':idStyle', $idStyle, PDO::PARAM_INT);
         return $request->execute();
     } catch (PDOException $ex) {
         return $ex;

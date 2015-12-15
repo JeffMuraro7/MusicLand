@@ -6,25 +6,39 @@
         header('Location: ./index.php');
         exit();
     }
-    
-    require_once './fonctionBD/fonction_select.php';
+
+    require_once './fonctionBD/fonction_lecture_bd.php';
+    require_once './fonctionBD/fonction_insertion_bd.php';
 
     $option = getStyle();
-    
+
     if(isset($_REQUEST['boutonEnvoyer'])) {
-        $target_dir = "./image/".$_SESSION['nom']."/".$_REQUEST['nomAlbum']."/";
-        $target_file = $target_dir . $_FILES['pochette']['name'];
+        $target_dir = "./IMG/".$_SESSION['nom']."/".$_REQUEST['nomAlbum']."/";
+        $target_file = $target_dir .$_FILES['pochette']['name']."/";
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
         $newNameFile = $_REQUEST['nomAlbum'].".".$imageFileType;
-        $uploadOk = 1;
-        
+
         if(file_exists($target_file)) {
             echo 'Le fichier existe déjà!';
         } else {
-           
+            if(!file_exists("./IMG/".$_SESSION['nom'])) //Si le dossier le l'utilisateur n'existe pas
+            {
+              mkdir("./IMG/".$_SESSION['nom']); //fait le dossier
+            }
+            if(!file_exists($target_dir))
+            {
+              mkdir($target_dir);
+            }
+
+            if (move_uploaded_file($_FILES["pochette"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["pochette"]["name"]). " has been uploaded.";
+                insertion_album($_REQUEST['nomAlbum'], $_SESSION['nom'], $_REQUEST['dateParution'], $target_file, $_REQUEST['style']); //TODO : Pas d'insertion dans la base
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
         }
-        
-        
+
+
     }
 ?>
 <!DOCTYPE html>
@@ -75,11 +89,10 @@
         <!-- Bloc pour le contenu du site -->
         <section>
             <article class="form">
-                <form method="post" action="form_upload_album.php">
+                <form method="post" action="form_upload_album.php" enctype="multipart/form-data">
                      <fieldset class="fieldset">
                         <legend> Ajout d'album </legend>
                         <label for="nomAlbum">Nom de l'album : </label><input type="text" name="nomAlbum" id="nomAlbum" maxlength="50" required value=""/> <br />
-                        <label for="nomArtiste">Artiste de l'album : </label><input type="text" name="nomArtiste" id="nomArtiste" maxlength="50" required value=""/> <br />
                         <label for="dateParution">Date de parution de l'album : </label><input type="date" name="dateParution" id="dateParution" maxlength="50" required value=""/> <br />
                         <label for="pochette">Pochette de l'album : </label><input type="file" name="pochette" id="pochette" maxlength="50" accept=".jpg, .png, .jpeg, .gif" required value=""/> <br />
                         <label for="style">Style de l'album : </label>
@@ -90,8 +103,8 @@
                                 }
                             ?>
                         </select>
-                        
-                        <input type="submit" value="boutonEnvoyer" name="boutonEnvoyer"/>
+
+                        <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
                      </fieldset>
                  </form>
              </article>
@@ -104,5 +117,3 @@
 
     </body>
 </html>
-
-
