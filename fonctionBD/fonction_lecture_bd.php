@@ -44,7 +44,7 @@
   function recuperer_musique_par_id($idMusique)
   {
     $request = getDb()->prepare("SELECT * FROM musique WHERE IdMusique = :id");
-    $request->bindParam(':id', $idAlbum, PDO::PARAM_INT);
+    $request->bindParam(':id', $idMusique, PDO::PARAM_INT);
     $request->execute();
     return $request->fetch(PDO::FETCH_ASSOC);
   }

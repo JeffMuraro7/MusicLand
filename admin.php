@@ -8,6 +8,7 @@
   }*/
   include_once './fonctionBD/fonction_lecture_bd.php';
   include_once './fonctionBD/fonction_modification.php';
+  include_once './fonctionBD/fonction_supression_bd.php';
 
   function recuperer_titre_nom_valider()
   {
@@ -42,13 +43,13 @@
            supprimer_musique($musique['IdMusique']);
         }
         else {
-          return "<h2>Une erreur est survenue lors de la supression</h2>";
+          echo "<h2>Une erreur est survenue lors de la supression</h2>";
         }
 
-        return "<h2>La musique à bien été supprimée</h2>";
+        echo "<h2>La musique à bien été supprimée</h2>";
      }
       else {
-        return "<h2>Cette musique n'existe pas.</h2>";
+        echo "<h2>Cette musique n'existe pas.</h2>";
       }
   }
 ?>
