@@ -31,13 +31,13 @@ figure#lecteurAudio {
     background: #333;
     background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/dark_wall.png);
     overflow: hidden;
-    width: 32rem;
+    width: 30rem;
     padding: .4rem;
     margin: 0 auto;
 }
 figure#lecteurAudio audio { width: 0; height: 0; }
 figure#lecteurAudio figcaption { 
-    width: 21.5rem; font-size: 0;
+    width: 19.5rem; font-size: 0;
     margin: .45rem; background: #000;
     float: left; 
     border: 1px solid #555;
@@ -61,7 +61,7 @@ div#album {
     width: 100%; 
 }
 div#time { 
-    width: 7.55rem;
+    width: 5.55rem;
     border-left: 1px solid #555; 
 }
 input#slideVolume { 
@@ -69,7 +69,7 @@ input#slideVolume {
 }
 
 figure#lecteurAudio button { 
-    width: 3rem; height: 3rem; 
+    width: 4rem; height: 4rem;
     background: #000; color: #fff; 
     border: none; 
 }
@@ -83,7 +83,7 @@ div#fader {
 
 #playback progress { 
     margin-left: 1rem; 
-    width: 20rem; height: 12px;
+    width: 20rem; height: 9px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

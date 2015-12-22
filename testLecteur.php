@@ -30,13 +30,13 @@
         <nav class="clearfix">
             <ul>
                 <li><a href="#">Musique</a></li>
-<?php
-if (!isset($_SESSION['nom'])) {
-    echo '<li><a href="inscription.php">Inscription</a></li><li><a href="connexion.php">Connexion</a></li>';
-} else {
-    echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>'; //TODO Faire déco
-}
-?>
+        <?php
+            if (!isset($_SESSION['nom'])) {
+                echo '<li><a href="inscription.php">Inscription</a></li><li><a href="connexion.php">Connexion</a></li>';
+            } else {
+                echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>'; //TODO Faire déco
+            }
+        ?>
             </ul>
         </nav>
 
@@ -94,10 +94,10 @@ if (!isset($_SESSION['nom'])) {
             // Fonction pour la gestion du texte du volume.
             function volume() {
                 if (pisteAudio.volume == 0) {
-                    muetBoutton.setAttribute("src", "IMG/muet.png");
+                    setText(muetBoutton, "Muet");
                 }
                 else {
-                    muetBoutton.setAttribute("src", "IMG/max.png");
+                    setText(muetBoutton, "Volume");
                 }
             }
 
@@ -131,7 +131,7 @@ if (!isset($_SESSION['nom'])) {
             
             // Insertion du texte pour le bouton play et pour le volume.
             setText(playButton, "Play");
-            muetBoutton.src = "./IMG/max.png";
+            setText(muetBoutton, "Volume");
             
             // Attribution des différents attributs
             setAttributes(playButton, {"type": "button", "class": "ss-icon"});
