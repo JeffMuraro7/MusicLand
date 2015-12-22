@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff38c5ce-350a-48dc-84e4-8cc4780bdb0c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StyleCSS/styleLecteur.css" afterPath="$PROJECT_DIR$/StyleCSS/styleLecteur.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonctionBD/fonction_lecture_bd.php" afterPath="$PROJECT_DIR$/fonctionBD/fonction_lecture_bd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testLecteur.php" afterPath="$PROJECT_DIR$/testLecteur.php" />
-    </list>
+    <list default="true" id="ff38c5ce-350a-48dc-84e4-8cc4780bdb0c" name="Default" comment="" />
     <ignored path="MusicLand.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -36,12 +32,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testLecteur.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testLecteur.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testLecteur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88644266">
+            <state vertical-scroll-proportion="-29.423077">
               <caret line="45" column="77" selection-start-line="45" selection-start-column="77" selection-end-line="45" selection-end-column="77" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fonction_lecture_bd.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fonctionBD/fonction_lecture_bd.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6106605">
+              <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+              <folding>
+                <marker date="1450769571097" expanded="true" signature="111:192" placeholder="SELECT pseud... user" />
+                <marker date="1450769571097" expanded="true" signature="485:544" placeholder="SELECT NomAl... album" />
+                <marker date="1450769571097" expanded="true" signature="774:820" placeholder="SELECT NomAl... album" />
+                <marker date="1450769571097" expanded="true" signature="1016:1072" placeholder="SELECT IdMus... musique" />
+                <marker date="1450769571097" expanded="true" signature="1301:1320" placeholder="SELECT * FRO... style" />
+                <marker date="1450769571097" expanded="true" signature="1572:1615" placeholder="SELECT * FRO... musique" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,10 +67,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/fonctionBD/fonction_lecture_bd.php" />
         <option value="$PROJECT_DIR$/StyleCSS/styleLecteur.css" />
         <option value="$PROJECT_DIR$/form_upload_album.php" />
         <option value="$PROJECT_DIR$/testLecteur.php" />
+        <option value="$PROJECT_DIR$/fonctionBD/fonction_lecture_bd.php" />
       </list>
     </option>
   </component>
@@ -228,21 +241,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fonctionBD/fonction_lecture_bd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69138753">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <marker date="1450768727195" expanded="true" signature="113:194" placeholder="SELECT pseud... user" />
-            <marker date="1450768727195" expanded="true" signature="487:546" placeholder="SELECT NomAl... album" />
-            <marker date="1450768727195" expanded="true" signature="776:822" placeholder="SELECT NomAl... album" />
-            <marker date="1450768727195" expanded="true" signature="1018:1074" placeholder="SELECT IdMus... musique" />
-            <marker date="1450768727195" expanded="true" signature="1304:1323" placeholder="SELECT * FRO... style" />
-            <marker date="1450768727195" expanded="true" signature="1575:1618" placeholder="SELECT * FRO... musique" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fonctionBD/fonction_insertion_bd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -273,9 +271,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testLecteur.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88644266">
+        <state vertical-scroll-proportion="-29.423077">
           <caret line="45" column="77" selection-start-line="45" selection-start-column="77" selection-end-line="45" selection-end-column="77" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fonctionBD/fonction_lecture_bd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6106605">
+          <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+          <folding>
+            <marker date="1450769571097" expanded="true" signature="111:192" placeholder="SELECT pseud... user" />
+            <marker date="1450769571097" expanded="true" signature="485:544" placeholder="SELECT NomAl... album" />
+            <marker date="1450769571097" expanded="true" signature="774:820" placeholder="SELECT NomAl... album" />
+            <marker date="1450769571097" expanded="true" signature="1016:1072" placeholder="SELECT IdMus... musique" />
+            <marker date="1450769571097" expanded="true" signature="1301:1320" placeholder="SELECT * FRO... style" />
+            <marker date="1450769571097" expanded="true" signature="1572:1615" placeholder="SELECT * FRO... musique" />
+          </folding>
         </state>
       </provider>
     </entry>
