@@ -16,9 +16,10 @@ function insertUser($lastname, $pseudo, $pass, $email) {
 
 function insertion_album($nomAlbum, $nomArtiste, $dateParution, $pochette, $idStyle) {
     try {
-        $request = getDb()->prepare("INSERT INTO `".DB_NAME."`'album' ('IdAlbum', 'NomAlbum', 'NomArtiste', 'Pochette', 'IdStyle') VALUES (NULL, :nomAlbum, :nomArtiste, :pochette, :idStyle)");
+        $request = getDb()->prepare("INSERT INTO `".DB_NAME."`.`album` (`IdAlbum`, `NomAlbum`, `NomArtiste`, `Pochette`, `IdStyle` , `DateParution`) VALUES (NULL, :nomAlbum, :nomArtiste, :pochette, :idStyle, :dateParution)");
         $request->bindParam(':nomAlbum', $nomAlbum, PDO::PARAM_STR);
         $request->bindParam(':nomArtiste', $nomArtiste, PDO::PARAM_STR);
+        $request->bindParam(':dateParution', $dateParution, PDO::PARAM_STR);
         $request->bindParam(':pochette', $pochette, PDO::PARAM_STR);
         $request->bindParam(':idStyle', $idStyle, PDO::PARAM_INT);
         return $request->execute();
@@ -27,7 +28,7 @@ function insertion_album($nomAlbum, $nomArtiste, $dateParution, $pochette, $idSt
     }
 }
 
-function insertion_musique($titre, $chemin, $idAlbum) //TODO : insertion dans déposer
+function insertion_musique($titre, $chemin, $idAlbum)
 {
    try{
      getDb()->beginTransaction();
