@@ -22,7 +22,7 @@
   }
   if(isset($_REQUEST['boutonEnvoyer']))
    {
-     $nomAlbumChoisi = recuperer_nom_album_par_id($_REQUEST['nomAlbum']); //get the name for create a folder fo each album
+     $nomAlbumChoisi = recuperer_nom_album_et_artiste_par_id($_REQUEST['nomAlbum']); //get the name for create a folder fo each album
      $target_dir = "./music/".$_SESSION['nom']."/".$nomAlbumChoisi['NomAlbum']."/"; //path for the file
      $target_file = $target_dir.$_FILES["musique"]["name"]; //get the name and the extension of the file
      $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION); //get the extension of the file

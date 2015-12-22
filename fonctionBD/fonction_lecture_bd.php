@@ -16,21 +16,21 @@
     return $request->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function recuperer_nom_album_par_id($idAlbum)
+  function recuperer_nom_album_et_artiste_par_id($idAlbum)
   {
-    $request = getDb()->prepare("SELECT NomAlbum FROM album WHERE IdAlbum = :id");
+    $request = getDb()->prepare("SELECT NomAlbum, NomArtiste FROM album WHERE IdAlbum = :id");
     $request->bindParam(':id', $idAlbum, PDO::PARAM_INT);
     $request->execute();
     return $request->fetch(PDO::FETCH_ASSOC);
   }
 
-  function recuperer_album_non_valide()
+  function recuperer_musique_non_valide()
   {
     $query = 'SELECT IdMusique, Titre FROM musique WHERE estValide = 0';
     $answer = getDb()->query($query); //execute the query
     return $answer->fetchAll(PDO::FETCH_ASSOC); //We make the answer an associotive array
   }
-  function getStyle() {
+  function recuperer_style() {
       try{
           $request = getDb()->prepare("SELECT * FROM style");
           $request->execute();
@@ -47,4 +47,21 @@
     $request->bindParam(':id', $idMusique, PDO::PARAM_INT);
     $request->execute();
     return $request->fetch(PDO::FETCH_ASSOC);
+  }
+
+  function recuperer_musique($limite) //Si on veut pas de limite mettre 0
+  {
+     if($limite > 0)
+     {
+       $request = getDb()->prepare("SELECT Titre, Piste, IdAlbum FROM musique WHERE estValide = 1 LIMIT :limit");
+       $request->bindParam(':limit', $limite, PDO::PARAM_INT);
+       $request->execute();
+       return $request->fetchAll(PDO::FETCH_ASSOC);
+     }
+     else
+     {
+       $request = getDb()->prepare("SELECT Titre, Piste, IdAlbum FROM musique WHERE estValide = 1");
+       $request->execute();
+       return $request->fetchAll(PDO::FETCH_ASSOC);
+     }
   }
