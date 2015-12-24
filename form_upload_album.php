@@ -12,6 +12,9 @@
 
     $option = recuperer_style();
 
+    $succes = "";
+    $erreur = "";
+
     if(isset($_REQUEST['boutonEnvoyer'])) {
         $target_dir = ".\\IMG\\".$_SESSION['nom']."\\".$_REQUEST['nomAlbum']."\\";
         $target_file = $target_dir .$_FILES['pochette']['name'];
@@ -19,7 +22,7 @@
         $newNameFile = $_REQUEST['nomAlbum'].".".$imageFileType;
 
         if(file_exists($target_file)) {
-            echo 'Le fichier existe déjà!';
+            $erreur = 'Le fichier existe déjà!';
         } else {
             if(!file_exists("./IMG/".$_SESSION['nom'])) //Si le dossier le l'utilisateur n'existe pas
             {
@@ -31,10 +34,10 @@
             }
             //target_file = ".\IMG\Orion24\Test\world.png";
             if (move_uploaded_file($_FILES["pochette"]["tmp_name"], $target_file)) {
-                echo "The file ". basename( $_FILES["pochette"]["name"]). " has been uploaded.";
+                $succes = "Le fichier ". basename( $_FILES["pochette"]["name"]). " a bien été envoyé.";
                 insertion_album($_REQUEST['nomAlbum'], $_SESSION['nom'], $_REQUEST['dateParution'], $target_file, $_REQUEST['style']);
             } else {
-                echo "Sorry, there was an error uploading your file.";
+                $erreur = "Désolé, il y a eut un problème avec l'envoi de l'album.";
             }
         }
 
@@ -74,6 +77,13 @@
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="music.php">Musique</a></li>
+                <?php
+                  if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
+                    echo '<li><a href="admin.php">Administration</a></li><li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>';
+                  } else {
+                    echo '<li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>';
+                  }
+                ?>
                 <li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
@@ -95,7 +105,15 @@
                                 }
                             ?>
                         </select>
-
+                        <?php
+                          if(isset($succes)) {
+                            echo $succes;
+                          } else {
+                            if(isset($erreur)) {
+                              echo $erreur;
+                            }
+                          }
+                        ?>
                         <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
                      </fieldset>
                  </form>
