@@ -1,3 +1,4 @@
+<?php
 /* ------------------------------------------------------------------------------
 Projet : MusicLand
 Fichier : inscription.php
@@ -6,7 +7,6 @@ Auteur : Jeff Muraro | Nicolas Bertrand
 Version : PC / 0.1 / Codage initial
 ------------------------------------------------------------------------------ */
 
-<?php
     session_start();
 
     if(isset($_SESSION['nom'])) {
