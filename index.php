@@ -31,11 +31,12 @@
         <!-- Bloc pour la navigation -->
         <nav class="clearfix">
             <ul>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="music.php">Musique</a></li>
                 <?php
                   if(!isset($_SESSION['nom']))
                   {
-                    echo '<li><a href="inscription.php">Inscription</a></li><li><a href="connexion.php">Connexion</a></li>';
+                    echo '<li><a href="connexion.php">Connexion</a></li><li><a href="inscription.php">Inscription</a></li>';
                   }
                   else
                   {
@@ -48,15 +49,7 @@
         <!-- Bloc pour le contenu du site -->
         <section>
             <article>
-                Article n°1
-            </article>
-
-            <article>
-                Article n°2
-            </article>
-
-            <article>
-                Article n°3
+                Bienvenue sur Music'Land. Un site ou il est répertorié des musiques libre de droits que vous pourrez écouter.
             </article>
         </section>
 

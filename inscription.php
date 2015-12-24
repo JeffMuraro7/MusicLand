@@ -23,7 +23,7 @@
          <link href="StyleCSS/myInscription.css" rel="stylesheet" type="text/css"/>
          <!-- Fin des feuilles de styles -->
          <meta charset="UTF-8">
-         <title>Music'Land | Accueil</title>
+         <title>Music'Land | Inscription</title>
      </head>
 
      <script>
@@ -68,8 +68,9 @@
          <nav class="clearfix">
              <ul>
                  <li><a href="index.php">Accueil</a></li>
-                 <li><a href="#">Musique</a></li>
+                 <li><a href="music.php">Musique</a></li>
                  <li><a href="connexion.php">Connexion</a></li>
+                 <li><a href="inscription.php">Inscription</a></li>
              </ul>
          </nav>
 
@@ -101,7 +102,7 @@
 
          <!-- Bloc pour le pied de page -->
          <footer>
-             Pied de page
+             &copy; Nicolas Bertrand & Jeff Muraro
          </footer>
 
      </body>

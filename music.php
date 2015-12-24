@@ -23,7 +23,7 @@
         <link href="StyleCSS/myFont.css" rel="stylesheet" type="text/css"/>
         <!-- Fin des feuilles de styles -->
         <meta charset="UTF-8">
-        <title>Music'Land | Accueil</title>
+        <title>Music'Land | Musique</title>
     </head>
     <body>
 
@@ -35,11 +35,12 @@
         <!-- Bloc pour la navigation -->
         <nav class="clearfix">
             <ul>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="music.php">Musique</a></li>
                 <?php
                   if(!isset($_SESSION['nom']))
                   {
-                    echo '<li><a href="inscription.php">Inscription</a></li><li><a href="connexion.php">Connexion</a></li>';
+                    echo '<li><a href="connexion.php">Connexion</a></li><li><a href="inscription.php">Inscription</a></li>';
                   }
                   else
                   {
@@ -51,16 +52,16 @@
 
         <!-- Bloc pour le contenu du site -->
         <section>
-            
+
                 <?php
                     if(!isset($_SESSION['nom'])) {
-                        
+
                     } else {
                         echo '<article><li><a href="form_upload_album.php">Ajouter un album</a></article>';
                     }
                 ?>
-            
-            
+
+
             <article>
                 Article n°1
             </article>

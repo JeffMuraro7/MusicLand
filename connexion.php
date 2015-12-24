@@ -29,7 +29,7 @@
          <link href="StyleCSS/myConnexion.css" rel="stylesheet" type="text/css"/>
         <!-- Fin des feuilles de styles -->
         <meta charset="UTF-8">
-        <title>Music'Land | Accueil</title>
+        <title>Music'Land | Connexion</title>
     </head>
     <body>
 
@@ -42,7 +42,8 @@
         <nav class="clearfix">
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="#">Musique</a></li>
+                <li><a href="music.php">Musique</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
                 <li><a href="inscription.php">Inscription</a></li>
             </ul>
         </nav>
