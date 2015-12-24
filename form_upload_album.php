@@ -10,11 +10,11 @@
     require_once './fonctionBD/fonction_lecture_bd.php';
     require_once './fonctionBD/fonction_insertion_bd.php';
 
-    $option = getStyle();
+    $option = recuperer_style();
 
     if(isset($_REQUEST['boutonEnvoyer'])) {
-        $target_dir = "./IMG/".$_SESSION['nom']."/".$_REQUEST['nomAlbum']."/";
-        $target_file = $target_dir .$_FILES['pochette']['name']."/";
+        $target_dir = ".\\IMG\\".$_SESSION['nom']."\\".$_REQUEST['nomAlbum']."\\";
+        $target_file = $target_dir .$_FILES['pochette']['name'];
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
         $newNameFile = $_REQUEST['nomAlbum'].".".$imageFileType;
 
@@ -29,10 +29,10 @@
             {
               mkdir($target_dir);
             }
-
+            //target_file = ".\IMG\Orion24\Test\world.png";
             if (move_uploaded_file($_FILES["pochette"]["tmp_name"], $target_file)) {
                 echo "The file ". basename( $_FILES["pochette"]["name"]). " has been uploaded.";
-                insertion_album($_REQUEST['nomAlbum'], $_SESSION['nom'], $_REQUEST['dateParution'], $target_file, $_REQUEST['style']); //TODO : Pas d'insertion dans la base
+                insertion_album($_REQUEST['nomAlbum'], $_SESSION['nom'], $_REQUEST['dateParution'], $target_file, $_REQUEST['style']);
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
