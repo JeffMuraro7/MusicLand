@@ -1,9 +1,7 @@
 <?php
   session_start();
-  if(isset($_SESSION['nom']))
-  {
-
-  }
+  require_once './fonctionBD/fonction_lecture_bd.php';
+  $tableau_musique = recuperer_musique_valider(3); //On veut récupérer les trois prmière musiques
 ?>
 <!DOCTYPE html>
 <!--
@@ -58,25 +56,20 @@
         <section>
 
                 <?php
-                    if(!isset($_SESSION['nom'])) {
-
-                    } else {
+                    if(isset($_SESSION['nom'])) {
                         echo '<article><a href="form_upload_album.php">Ajouter un album</a></br><a href="form_upload_music.php">Ajouter une musique</a></article>';
                     }
+
+                    foreach ($tableau_musique as $value) { //Pour chaque musique son article
+                       $nomAlbum = recuperer_nom_album_et_artiste_par_id($value['IdMusique']);
+                       echo '<article>';
+                       echo "<h2>".$value['Titre']."</h2>";
+                       echo "<p> Nom de l'artiste : ".$nomAlbum["NomArtiste"]."</p>";
+                       echo "<p> Nom de l'album :".$nomAlbum['NomAlbum']."</p>";
+                       echo '<a href="lecteur.php?idMusique='.$value['IdMusique'].'">Ecouter la musique</a>';
+                       echo "</article>";
+                    }
                 ?>
-
-
-            <article>
-                Article n°1
-            </article>
-
-            <article>
-                Article n°2
-            </article>
-
-            <article>
-                Article n°3
-            </article>
         </section>
 
         <!-- Bloc pour le pied de page -->

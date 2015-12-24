@@ -10,7 +10,7 @@
       function getMusic($id)
       {
           global $lecteur;
-          $tableau_musique = recuperer_musique($id);
+          $tableau_musique = recuperer_musique_par_id($id);
           $nomAlbum = recuperer_nom_album_et_artiste_par_id($id);
           $lecteur = '<article>
               <figure id="lecteurAudio" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
@@ -62,7 +62,7 @@
             if (!isset($_SESSION['nom'])) {
                 echo '<li><a href="inscription.php">Inscription</a></li><li><a href="connexion.php">Connexion</a></li>';
             } else {
-                echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>'; //TODO Faire déco
+                echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>';
             }
         ?>
             </ul>

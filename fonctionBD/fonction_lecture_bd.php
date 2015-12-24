@@ -43,16 +43,24 @@
 
   function recuperer_musique_par_id($idMusique)
   {
-    $request = getDb()->prepare("SELECT * FROM musique WHERE IdMusique = :id");
+    $request = getDb()->prepare("SELECT * FROM musique WHERE IdMusique = :id AND estValide = 1");
     $request->bindParam(':id', $idMusique, PDO::PARAM_INT);
     $request->execute();
     return $request->fetch(PDO::FETCH_ASSOC);
   }
 
-  function recuperer_musique($id) //Si on veut pas de limite mettre 0
+  function recuperer_musique_valider($limite) //Si on veut pas de limite mettre 0
   {
-       $request = getDb()->prepare("SELECT Titre, Piste, IdAlbum FROM musique WHERE idMusique = :id");
-       $request->bindParam(':id', $id, PDO::PARAM_INT);
+      if ($limite > 0)
+      {
+       $request = getDb()->prepare("SELECT Titre, Piste, IdAlbum, IdMusique FROM musique WHERE estValide = 1 LIMIT :limit");
+       $request->bindParam(':limit', $limite, PDO::PARAM_INT);
        $request->execute();
-       return $request->fetch(PDO::FETCH_ASSOC);
+       return $request->fetchAll(PDO::FETCH_ASSOC);
+     }
+     else {
+       $request = getDb()->prepare("SELECT Titre, Piste, IdAlbum, IdMusique FROM musique WHERE estValide = 1");
+       $request->execute();
+       return $request->fetchAll(PDO::FETCH_ASSOC);
+     }
   }
