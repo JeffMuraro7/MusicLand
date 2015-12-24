@@ -2,7 +2,7 @@
   session_start();
   if(isset($_SESSION['nom']))
   {
-     var_dump($_SESSION['nom']);
+
   }
 ?>
 <!DOCTYPE html>
@@ -57,7 +57,7 @@
                     if(!isset($_SESSION['nom'])) {
 
                     } else {
-                        echo '<article><li><a href="form_upload_album.php">Ajouter un album</a></article>';
+                        echo '<article><a href="form_upload_album.php">Ajouter un album</a></article>';
                     }
                 ?>
 

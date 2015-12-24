@@ -72,17 +72,9 @@
         <!-- Bloc pour la navigation -->
         <nav class="clearfix">
             <ul>
-                <li><a href="#">Musique</a></li>
-                <?php
-                  if(!isset($_SESSION['nom']))
-                  {
-                    echo '<li><a href="inscription.php">Inscription</a></li><li><a href="connexion.php">Connexion</a></li>';
-                  }
-                  else
-                  {
-                    echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>'; //TODO Faire déco
-                  }
-                ?>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="music.php">Musique</a></li>
+                <li><a href="connexion.php?deco=oui">Déconnexion</a></li>
             </ul>
         </nav>
 

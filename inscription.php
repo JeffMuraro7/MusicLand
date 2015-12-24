@@ -1,17 +1,30 @@
 <?php
+
+
    $nom = isset($_REQUEST['nom']) ? $_REQUEST['nom'] : "";
    $pseudo = isset($_REQUEST['pseudo']) ? $_REQUEST['pseudo'] : "";
    $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
+   $pass = isset($_REQUEST['pass']) ? $_REQUEST['pass'] : "";
+   $passconf = isset($_REQUEST['passconf']) ? $_REQUEST['passconf'] : "";
+
+
+   $succes = "";
+   $erreur = "";
 
    if(isset($_REQUEST['boutonEnvoyer']))
    {
       require_once './fonctionBD/fonction_insertion_bd.php';
-      $inscription = insertUser($_REQUEST['nom'], $_REQUEST['pseudo'], $_REQUEST['pass'], $_REQUEST['email']);
 
-      if($inscription != false) {
-        $succes = "Votre inscription a été executée avec succès!";
+      if(isset($_REQUEST['pass']) && isset($_REQUEST['passconf']) && $_REQUEST['pass'] == $_REQUEST['passconf']) {
+        $inscription = insertUser($_REQUEST['nom'], $_REQUEST['pseudo'], $_REQUEST['pass'], $_REQUEST['email']);
+
+        if($inscription != false) {
+          $succes = "Votre inscription a été executée avec succès!";
+        } else {
+          $erreur = "Il y a eut un problème avec votre inscription!";
+        }
       } else {
-        $erreur = "Il y a eut un problème avec votre inscription!";
+        $erreur = "Les mots de passe ne sont pas identiques!";
       }
    }
  ?>
@@ -90,7 +103,9 @@
                           if(isset($succes)) {
                             echo $succes;
                           } else {
-                            echo $erreur;
+                            if(isset($erreur)) {
+                              echo $erreur;
+                            }
                           }
                         ?>
 
