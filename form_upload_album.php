@@ -74,7 +74,7 @@
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="music.php">Musique</a></li>
-                <li><a href="connexion.php?deco=oui">Déconnexion</a></li>
+                <li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
 

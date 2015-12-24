@@ -40,7 +40,7 @@
                   }
                   else
                   {
-                    echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>';
+                    echo '<li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>';
                   }
                 ?>
             </ul>

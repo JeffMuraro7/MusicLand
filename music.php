@@ -44,7 +44,7 @@
                   }
                   else
                   {
-                    echo '<li><a href="connexion.php?deco=oui">Déconnexion</a></li>'; //TODO Faire déco
+                    echo '<li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>'; //TODO Faire déco
                   }
                 ?>
             </ul>

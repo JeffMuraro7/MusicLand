@@ -80,8 +80,9 @@
         <!-- Bloc pour la navigation -->
         <nav class="clearfix">
             <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="#">Musique</a></li>
+              <li><a href="index.php">Accueil</a></li>
+              <li><a href="music.php">Musique</a></li>
+              <li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
 

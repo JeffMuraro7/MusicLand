@@ -1,5 +1,18 @@
-<?php
+/* ------------------------------------------------------------------------------
+Projet : MusicLand
+Fichier : inscription.php
+Description : Page pour l'inscription au site
+Auteur : Jeff Muraro | Nicolas Bertrand
+Version : PC / 0.1 / Codage initial
+------------------------------------------------------------------------------ */
 
+<?php
+    session_start();
+
+    if(isset($_SESSION['nom'])) {
+      header('Location: ./index.php');
+      exit();
+    }
 
    $nom = isset($_REQUEST['nom']) ? $_REQUEST['nom'] : "";
    $pseudo = isset($_REQUEST['pseudo']) ? $_REQUEST['pseudo'] : "";

@@ -1,6 +1,20 @@
 <?php
+/* ------------------------------------------------------------------------------
+Projet : MusicLand
+Fichier : connexion.php
+Description : Page pour la connexion au site
+Auteur : Jeff Muraro | Nicolas Bertrand
+Version : PC / 0.1 / Codage initial
+------------------------------------------------------------------------------ */
+
   $pseudo = isset($_REQUEST['pseudo']) ? $_REQUEST['pseudo'] : "";
   session_start();
+
+  if(isset($_SESSION['nom'])) {
+    header('Location: ./index.php');
+    exit();
+  }
+
   if(isset($_REQUEST['deco']) && $_REQUEST['deco'] == "oui")
   {
       session_destroy();
