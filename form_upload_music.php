@@ -12,6 +12,10 @@
   require_once './fonctionBD/fonction_insertion_bd.php';
   $nom = isset($_REQUEST['nomMusique']) ? $_REQUEST['nomMusique'] : "";
   $nomAlbums = recuperer_nom_album_par_artiste($_SESSION['nom']);
+
+  $erreur = "";
+  $succes = "";
+
   if(count($nomAlbums) == 0)
   {
     echo '<script language="Javascript">
@@ -31,7 +35,7 @@
 
       // Check if file already exists
       if (file_exists($target_file)) {
-          echo 'le fichier existe déjà.';
+          $erreur = 'Le fichier existe déjà.';
       }
       else {
         if(!file_exists("./music/".$_SESSION['nom']."/"))
@@ -45,16 +49,16 @@
         // Allow certain file formats
         if($imageFileType != "wav" && $imageFileType != "mp3")
        {
-            echo "Désolé, seul les formats mp3 et wav sont acceptés.";
+            $erreur = "Désolé, seul les formats mp3 et wav sont acceptés.";
             $uploadOk = 0;
         }
       }
       if (move_uploaded_file($_FILES["musique"]["tmp_name"], $target_file)) {
-          echo "The file ". basename( $_FILES["musique"]["name"]). " has been uploaded.";
+          $succes = "Le fichier ". basename( $_FILES["musique"]["name"]). " a bien été envoyé.";
           rename($target_file, $target_dir.$newNameFile);
           insertion_musique( $_REQUEST['nomMusique'], $target_dir.$newNameFile, $_REQUEST['nomAlbum']);
       } else {
-          echo "Sorry, there was an error uploading your file.";
+          $erreur = "Désolé, il y a eut une erreur lors de l'envoi de la musique.";
       }
 
    }
@@ -97,7 +101,7 @@
             <article class="form">
                 <form method="post" action="#"  enctype="multipart/form-data">
                     <fieldset class="fieldset">
-                       <legend> Inscription </legend>
+                       <legend> Ajouter une musique </legend>
                        <label for="nom">Votre nom de la musique : </label><input type="text" name="nomMusique" id="nom" maxlength="50" required value="<?= $nom ?>"/> <br />
                        <label for="nomAlbum">Votre Album : </label> <select name="nomAlbum" required>
                       <?php
@@ -107,6 +111,15 @@
                        ?>
                       </select>
                       <label for="musique">Télécharger votre musique :</label><input name="musique" id="image" type=file accept="audio/wav, audio/mp3"><br />
+                      <?php
+                        if(!empty($succes)) {
+                          echo $succes;
+                        } else {
+                          if(!empty($erreur)) {
+                            echo $erreur;
+                          }
+                        }
+                       ?>
                        <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
                     </fieldset>
                 </form>
@@ -115,7 +128,7 @@
 
         <!-- Bloc pour le pied de page -->
         <footer>
-            Pied de page
+            &copy; Nicolas Bertrand & Jeff Muraro
         </footer>
 
     </body>
