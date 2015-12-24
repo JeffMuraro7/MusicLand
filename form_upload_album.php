@@ -77,6 +77,13 @@
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="music.php">Musique</a></li>
+                <?php
+                  if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
+                    echo '<li><a href="admin.php">Administration</a></li><li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>';
+                  } else {
+                    echo '<li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>';
+                  }
+                ?>
                 <li><a href="./fonctionBD/deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
