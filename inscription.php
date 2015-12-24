@@ -6,7 +6,13 @@
    if(isset($_REQUEST['boutonEnvoyer']))
    {
       require_once './fonctionBD/fonction_insertion_bd.php';
-      insertUser($_REQUEST['nom'], $_REQUEST['pseudo'], $_REQUEST['pass'], $_REQUEST['email']);
+      $inscription = insertUser($_REQUEST['nom'], $_REQUEST['pseudo'], $_REQUEST['pass'], $_REQUEST['email']);
+
+      if($inscription != false) {
+        $succes = "Votre inscription a été executée avec succès!";
+      } else {
+        $erreur = "Il y a eut un problème avec votre inscription!";
+      }
    }
  ?>
  <html>
@@ -78,6 +84,15 @@
                         <label for="pass">Votre mot de passe :</label><input type="password" name="pass" id="pass" required /> <br />
                         <label for="passconf">Confirmer mot de passe :</label><input type="password" name="passconf" id="passconf" onkeyup="checkPass(); return false;" required /><span id="confirmMessage" class="confirmMessage"></span> <br />
                         <label for="email">Votre E-mail : </label><input type="email" name="email" id="email" maxlength="200" value="<?= $email ?>" required /> <br />
+
+                        <?php
+                          if(isset($succes)) {
+                            echo $succes;
+                          } else {
+                            echo $erreur;
+                          }
+                        ?>
+
                         <input type="submit" value="Envoyer" name="boutonEnvoyer"/>
                      </fieldset>
                  </form>
